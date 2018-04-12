@@ -1,6 +1,8 @@
 const api = "http://localhost:3001";
 
-const token = 1;
+let token = localStorage.token;
+if(!token)
+	token = localStorage.token = Math.random().toString(38).substr(-8);
 
 const headers = {
 	'Content-Type' : 'application/json',
@@ -15,5 +17,15 @@ export const getCategories = () =>
 export const getPost = (category) => 
 	fetch(`${api}/${category}/posts`, { headers })
 		.then(res => res.json())
-		.then(data => data.voteScore)
+
+export const addPost = (post) => 
+	fetch(`${api}/posts`, {
+		method: 'POST',
+		headers : headers,
+		body: JSON.stringify(post)
+	})
+	.then((res) => {
+		console.log(res)
+	})
+		
 

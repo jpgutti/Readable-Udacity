@@ -1,19 +1,41 @@
 import React, { Component } from 'react';
 import MainView from './components/MainView';
 import Category from './components/Category';
-import { getCategories } from './utils/Api';
+import { getCategories, addPost } from './utils/Api';
 import { Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
 
+  // const post = {
+  //   id: 1,
+  //   timestamp: Data.now(),
+  //   title: "teste",
+  //   body: "testeeeee",
+  //   author: "numsei",
+  //   category: 'react',
+  //   voteScore: 0,
+  //   deleted: false,
+  //   commentCount: 0
+  // }
+
   state = {
-    categories: []
+    categories: [],
+    post : {
+      id: 0,
+      timestamp: Date.now(),
+      title: "",
+      body: "",
+      author: "",
+      category: "",
+      voteScore: 0,
+      deleted: false,
+      commentCount: 0
+    }
   }
 
   componentDidMount(){
     getCategories().then((res) =>{
-        console.log(res);
         this.setState({categories:res})
     });
   }
@@ -25,8 +47,8 @@ class App extends Component {
           <Route exact path="/" render={() => (
             <MainView arr={this.state.categories} />
           )} />
-          <Route path="/:category" render={() => (
-            <Category/>
+          <Route path="/:category" render={(props) => (
+            <Category {...props} />
           )} />
         </div>
       </BrowserRouter>
