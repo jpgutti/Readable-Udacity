@@ -27,9 +27,9 @@ export function Card ({nome, index, voteScore}) {
 			  <a href="#0" className="text-uppercase d-inline-block font-weight-medium lts-2px mb-2 text-center styled-link">
 			    Read More
 			  </a>
-			  	<Link to="/createPost">
-					<button className="rdn-button">Add</button>
-			  	</Link>
+			  	<Link className="rdn-button" to="/addPost">
+					<button >Add</button>
+				</Link>
 			</div>
 		</div>
 		</Link>
@@ -39,7 +39,7 @@ export function Card ({nome, index, voteScore}) {
 const mapStateToProps = (state, props) => {
 	let votos = null;
 	for(var key in state.posts){
-		if(state.posts[key].category == props.nome){
+		if(state.posts[key].category === props.nome){
 			console.log(state.posts[key].voteScore);
 			votos = state.posts[key].voteScore;
 		} else {

@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
-import { getPost } from '../utils/Api';
+import { getPosts } from '../actions/posts';
+import { connect } from 'react-redux'
 
 class Category extends Component {
 
 	state = {
-		names : ''
+      post: []	
+	}
+
+	componentWillMount(){
+		
 	}
 
 	componentDidMount(){
-		getPost(this.props.match.params.category).then((res) => {
-			console.log(res);
-		})
+		
 	}
 
 	render(){
-		console.log(this.props.match.params.category);
+		console.log(this.state.post)
 		return(
 			<div>{this.state.names}</div>
 		);
 	}
 }
 
-export default Category
+function mapDispatchToProps(dispatch) {
+	return {
+		
+	}
+}
+
+export default connect()(Category)

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'; 
 import MainView from './components/MainView';
 import Category from './components/Category';
-import { getCategories, addPost } from './utils/Api';
+import { fetchAllPosts } from './actions/posts';
+import { getCategories, createPost, getPost, getAllPosts} from './utils/Api';
 import { Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 
@@ -21,20 +23,10 @@ class App extends Component {
 
   state = {
     categories: [],
-    post : {
-      id: 0,
-      timestamp: Date.now(),
-      title: "",
-      body: "",
-      author: "",
-      category: "",
-      voteScore: 0,
-      deleted: false,
-      commentCount: 0
-    }
   }
 
   componentDidMount(){
+    fetchAllPosts();
     getCategories().then((res) =>{
         this.setState({categories:res})
     });
@@ -45,7 +37,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Route exact path="/" render={() => (
-            <MainView arr={this.state.categories} />
+            <MainView arr={this.state.categories}/>
           )} />
           <Route path="/:category" render={(props) => (
             <Category {...props} />
@@ -55,5 +47,13 @@ class App extends Component {
     );
   }
 }
+function mapStateToProps(store, action){
 
-export default App;
+}
+function mapDispatchToProps(dispatch) {
+  return {
+      
+  }
+}
+
+export default connect()(App);
