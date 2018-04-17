@@ -8,10 +8,6 @@ import reducer from './reducers'
 import { createStore, applyMiddleware, compose } from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 
-// const middleware = store => next => action => {
-	
-// }
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(

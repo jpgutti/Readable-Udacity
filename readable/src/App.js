@@ -25,8 +25,13 @@ class App extends Component {
     categories: [],
   }
 
+  componentWillMount(){
+    
+    
+  }
+
   componentDidMount(){
-    fetchAllPosts();
+    this.props.dispatch(fetchAllPosts());
     getCategories().then((res) =>{
         this.setState({categories:res})
     });
@@ -47,13 +52,12 @@ class App extends Component {
     );
   }
 }
-function mapStateToProps(store, action){
 
-}
-function mapDispatchToProps(dispatch) {
-  return {
-      
-  }
-}
+// function mapStateToProps(store, action){
+
+// }
+// function mapDispatchToProps(dispatch) {
+//   fetchAllPosts();
+// }
 
 export default connect()(App);

@@ -39,6 +39,6 @@ export function deletePost({ post }){
 }
 
 export const fetchAllPosts = () => dispatch => {
-	getAllPosts()
+	return getAllPosts()
 		.then(res => dispatch(getPosts(res)))
 } 

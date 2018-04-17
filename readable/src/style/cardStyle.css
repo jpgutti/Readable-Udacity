@@ -320,6 +320,7 @@ p, h1 {
 }
 .style2 {
 	line-height: 1.25px;
+  text-decoration-style: none;
 }
 .style3 {
 	border-top: 1px solid rgba(0,0,0,0.12);
@@ -335,6 +336,8 @@ p, h1 {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  position: relative;
+  position: absolute;
+  margin-right: 0px;
+  float: right !important;
   z-index: 999px;
 }

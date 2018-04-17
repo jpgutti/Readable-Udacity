@@ -27,9 +27,9 @@ export function Card ({nome, index, voteScore}) {
 			  <a href="#0" className="text-uppercase d-inline-block font-weight-medium lts-2px mb-2 text-center styled-link">
 			    Read More
 			  </a>
-			  	<Link className="rdn-button" to="/addPost">
-					<button >Add</button>
-				</Link>
+			  <Link to="/addPost">
+				<button className="rdn-button">Add</button>
+			  </Link>
 			</div>
 		</div>
 		</Link>
