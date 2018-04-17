@@ -4,6 +4,7 @@ export const ADD_POST = 'ADD_POST';
 export const GET_POST = 'GET_POST';
 export const UPDATE_POST = 'UPDATE_POST';
 export const DELETE_POST = 'DELETE_POST';
+export const GET_POSTS = 'GET_POSTS';
 
 
 export function addPost({ post }){
@@ -14,10 +15,16 @@ export function addPost({ post }){
 	}
 }
 
-export function getPosts({ post }){
+export function getPosts( post ){
+	return {
+		type: 'GET_POSTS',
+		item: post
+	}
+}
+
+export function getPost( post ){
 	return {
 		type: 'GET_POST',
-		id: post.id,
 		item: post
 	}
 }
@@ -39,6 +46,8 @@ export function deletePost({ post }){
 }
 
 export const fetchAllPosts = () => dispatch => {
-	return getAllPosts()
-		.then(res => dispatch(getPosts(res)))
+	getAllPosts()
+		.then(res => {
+			return dispatch(getPosts(res))
+		})
 } 

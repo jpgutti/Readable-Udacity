@@ -33,3 +33,7 @@ export function deleteComment ({ item }){
 		item: item
 	}
 }
+
+// export function fetchAllComments(dispatch) => {
+	
+// }

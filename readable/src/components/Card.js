@@ -40,7 +40,6 @@ const mapStateToProps = (state, props) => {
 	let votos = null;
 	for(var key in state.posts){
 		if(state.posts[key].category === props.nome){
-			console.log(state.posts[key].voteScore);
 			votos = state.posts[key].voteScore;
 		} else {
 			votos = 0;

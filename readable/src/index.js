@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import reducer from './reducers'
+import reducer from './reducers/index'
 import { createStore, applyMiddleware, compose } from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -17,6 +17,8 @@ const store = createStore(
 	)
 	
 )
+
+console.log(store.getState());
 
 ReactDOM.render(
 	<Provider store={store}>

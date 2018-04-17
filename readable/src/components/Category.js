@@ -9,25 +9,27 @@ class Category extends Component {
 	}
 
 	componentWillMount(){
-		
+		console.log('Will ', this.props.posts);
 	}
 
 	componentDidMount(){
-		
+		console.log('Did ', this.props.posts);
+		// this.props.posts.map(item => {
+		// 	this.setState({post: item.category == this.props.match.params.category})
+		// })
 	}
 
 	render(){
-		console.log(this.state.post)
+		console.log('Render', this.props.posts)
 		return(
 			<div>{this.state.names}</div>
 		);
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		
-	}
+function mapStateToProps(store){
+	console.log('store', store.posts)
+	return {posts : store.posts}
 }
 
-export default connect()(Category)
+export default connect(mapStateToProps)(Category)

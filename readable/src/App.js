@@ -57,7 +57,7 @@ class App extends Component {
 
 // }
 // function mapDispatchToProps(dispatch) {
-//   fetchAllPosts();
+//   return {populateStore: () => dispatch(fetchAllPosts())}
 // }
 
 export default connect()(App);

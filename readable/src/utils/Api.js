@@ -28,10 +28,13 @@ export const createPost = (post) =>
 		console.log(res)
 	})
 
-export const getAllPosts = () => {
+export const getAllPosts = () => 
 	fetch(`${api}/posts`, { headers })
 		.then(res => res.json())
-		.then(data => data)
-}
-		
+		.then(function(data){
+			return data;
+		});
+
+// export const getAllComments = () => 
+// 	fetch(`${api}/comment`)
 
