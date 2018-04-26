@@ -1,4 +1,4 @@
-import { getAllPosts } from '../utils/Api';
+import { getAllPosts, createPost } from '../utils/Api';
 
 export const ADD_POST = 'ADD_POST';
 export const GET_POST = 'GET_POST';
@@ -7,7 +7,7 @@ export const DELETE_POST = 'DELETE_POST';
 export const GET_POSTS = 'GET_POSTS';
 
 
-export function addPost({ post }){
+export function addPost(post){
 	return {
 		type: 'ADD_POST',
 		id: post.id,
@@ -50,4 +50,12 @@ export const fetchAllPosts = () => dispatch => {
 		.then(res => {
 			return dispatch(getPosts(res))
 		})
-} 
+}
+
+export const createPosts = ( post ) => dispatch => {
+	console.log("Api " + post);
+	createPost(post)
+		.then(res => {
+			return dispatch(addPost(post));
+		})
+}

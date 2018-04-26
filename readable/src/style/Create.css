@@ -1,0 +1,42 @@
+.PostContainer {
+	text-align: center;
+	padding: 50px;
+}
+
+.newPost {
+	display: inline-grid;	
+	padding:15px;
+	text-align: left;
+	width: 1000px;
+	height: 400px;
+	border-radius: 6px;
+	background-color: #f4f4f4 ;
+	box-shadow: 1px 5px 10px 0 rgba(0,0,0,0.25);
+}
+
+form label {
+	
+}
+
+
+
+.inputTitle {
+
+}
+
+.inputBody {
+}
+
+.inputAuthor {
+	max-width: 100%;
+}
+
+textarea[type=text].inputBody {
+	border-radius: 3px;
+	padding-bottom: 30px;
+	padding-right: 300px;
+	resize: none;
+	box-sizing: border-box;
+	word-break: break-word;
+
+}

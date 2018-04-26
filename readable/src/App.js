@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 import MainView from './components/MainView';
 import Category from './components/Category';
+import NewPost from './components/NewPost';
 import { fetchAllPosts } from './actions/posts';
 import { getCategories, createPost, getPost, getAllPosts} from './utils/Api';
 import { Route, BrowserRouter } from 'react-router-dom';
@@ -44,9 +45,12 @@ class App extends Component {
           <Route exact path="/" render={() => (
             <MainView arr={this.state.categories}/>
           )} />
-          <Route path="/:category" render={(props) => (
+          <Route exact path="/:category" render={(props) => (
             <Category {...props} />
           )} />
+          <Route path="/:category/add" render={(props) => (
+            <NewPost {...props}/>
+          )}/>
         </div>
       </BrowserRouter>
     );

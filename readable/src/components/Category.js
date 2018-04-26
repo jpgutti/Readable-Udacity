@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getPosts } from '../actions/posts';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import CategoryCard from './CategoryCard';
 
 class Category extends Component {
 
@@ -9,27 +10,29 @@ class Category extends Component {
 	}
 
 	componentWillMount(){
-		console.log('Will ', this.props.posts);
+		this.setState({post: this.props.posts})
 	}
 
 	componentDidMount(){
-		console.log('Did ', this.props.posts);
-		// this.props.posts.map(item => {
-		// 	this.setState({post: item.category == this.props.match.params.category})
-		// })
+		console.log(this.state.post)
 	}
 
 	render(){
-		console.log('Render', this.props.posts)
+		let posts = this.state.post;
 		return(
-			<div>{this.state.names}</div>
+			posts.map((p, index) => (
+				<CategoryCard post={p} key={index}/>
+			))
 		);
 	}
 }
 
-function mapStateToProps(store){
-	console.log('store', store.posts)
-	return {posts : store.posts}
+function mapStateToProps(store, props){
+	const { posts } = store
+	const { category } = props.match.params
+	return {
+		posts: store.posts.filter(post => post.category === category && post.deleted == false )
+	}
 }
 
 export default connect(mapStateToProps)(Category)

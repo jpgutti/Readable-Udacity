@@ -1,5 +1,6 @@
 import React from 'react';
 import '../style/cardStyle.css'
+import MdInsertComment from "react-icons/lib/md/insert-comment"
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -21,16 +22,16 @@ export function Card ({nome, index, voteScore}) {
 			    <p className="mt-2">
 			      Summer is coming to a close just around the corner. But it's not too late to squeeze in another weekend trip &hellip;
 			    </p>
-
 			  </div>
 
 			  <a href="#0" className="text-uppercase d-inline-block font-weight-medium lts-2px mb-2 text-center styled-link">
 			    Read More
 			  </a>
-			  <Link to="/addPost">
-				<button className="rdn-button">Add</button>
-			  </Link>
+			  	
 			</div>
+			<Link to={`/${nome}/add`} className="fab">
+				<MdInsertComment cat={nome}/>	
+			</Link>
 		</div>
 		</Link>
 	)

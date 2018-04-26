@@ -35,6 +35,3 @@ export const getAllPosts = () =>
 			return data;
 		});
 
-// export const getAllComments = () => 
-// 	fetch(`${api}/comment`)
-

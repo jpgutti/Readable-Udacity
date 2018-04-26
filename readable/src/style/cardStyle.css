@@ -4,6 +4,7 @@
 	border-radius: 5px;
 	background-color: #42d4f4;
 	color: black;
+  z-index: -99px;
 }
 
 .title {
@@ -330,6 +331,7 @@ p, h1 {
 }
 .grid-container {
 	display: inline-grid;
+  margin: 20px;
 }
 
 .rdn-button {
@@ -340,4 +342,32 @@ p, h1 {
   margin-right: 0px;
   float: right !important;
   z-index: 999px;
+}
+
+.fab {
+   width: 55px;
+   height: 55px;
+   background-color: #2196fe;
+   border-radius: 50%;
+   box-shadow: 0 6px 10px 0 #666;
+   z-index: 100px;
+
+   padding-bottom: 10px;
+   
+   font-size: 26px;
+   line-height: 55px;
+   color: white;
+   text-align: center;
+   
+   position: relative;
+   margin-left: 145px;
+   float: right !important;
+   bottom: 55px;
+   
+  transition: all 0.1s ease-in-out;
+}
+
+.fab:hover {
+  box-shadow: 0 6px 14px 0 #666;
+  transform: scale(1.03);
 }
